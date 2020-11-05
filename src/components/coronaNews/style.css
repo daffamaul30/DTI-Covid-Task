@@ -35,7 +35,7 @@ li a:hover {
   padding-left: 20px;
 }
 
-.list-data:before {
+/* .list-data:before {
   content: '';
   background-color: darkblue;
   position: absolute;
@@ -55,7 +55,7 @@ li a:hover {
   left: 7px;
   width: 3px;
   height: 700px;
-}
+} */
 
 .list-data:after {
   content: '';

@@ -1,4 +1,5 @@
 import React from 'react';
+import Pagination from 'pagination-react-hooks';
 import Loading from '../loading';
 import './style.css';
 
@@ -49,17 +50,16 @@ const CoronaNews = (props) => {
 
     return days[day] + ', ' + dt + ' ' + month + ' ' + year;
   };
-
-  console.log(news);
-  const beritas = news.map((berita) => {
+  const beritas = (value) => {
+    console.log(value);
+    // return <p>HAI</p>
     return (
       <li
-        key={berita.id}
-        id={berita.id === news[news.length - 1].id ? 'last' : ''}
+        key={value.id}
         className="list-data"
       >
-        {convertISO(berita.date)}
-        {berita.activity.map((activity) => {
+        {convertISO(value.date)}
+        {value.activity.map((activity) => {
           return (
             <ul key={activity.url}>
               <li id="title">
@@ -71,14 +71,22 @@ const CoronaNews = (props) => {
         })}
       </li>
     );
-  });
+  };
 
   return (
     <div className="news-container">
       {loading ? (
         <Loading />
       ) : (
-        <ul className="list-group mb-4">{beritas}</ul>
+        <ul className="list-group mb-4">
+          <Pagination
+            data={news}
+            Show={beritas}
+            displayNumber="5"
+            previousText="&laquo;"
+            nextText="&raquo;"
+          />
+        </ul>
       )}
     </div>
   );
