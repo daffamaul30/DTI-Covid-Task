@@ -1,0 +1,17 @@
+li {
+  list-style-type: none;
+}
+
+.pagination {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.pagination button {
+  transition: background-color .3s;
+}
+
+.pagination li button:hover:not(.active) {
+  background-color: lightgreen;
+  color: white;
+}
