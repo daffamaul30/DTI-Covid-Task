@@ -10,6 +10,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import { setCookie } from '../../utils/cookie';
 import { authService } from '../../services';
 
 const LoginModal = (props) => {
@@ -33,7 +34,12 @@ const LoginModal = (props) => {
     authService
       .login(username, password)
       .then((res) => {
-        console.log(res);
+        // console.log(JSON.stringify(res.token));
+        // console.log(JSON.parse(res.token));
+        const cookieToken = res.token;
+        // const cookieUser = res.user;
+        // setCookie('userID', JSON.stringify(cookieUser), 1000);
+        setCookie('tokenn', JSON.stringify(cookieToken), 1000);
       })
       .catch((err) => {
         console.log(err);

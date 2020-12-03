@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { isUserAuthenticated } from '../../utils/cookie';
+import './style.css';
 
 const Header = () => {
   const listMenu = ['Home', 'Product', 'Info Covid-19'];
@@ -12,6 +14,13 @@ const Header = () => {
           </Link>
         );
       })}
+      {isUserAuthenticated() ? (
+        <button type="button" className="logout btn btn-danger">
+          Logout
+        </button>
+      ) : (
+        <div />
+      )}
     </div>
   );
 };

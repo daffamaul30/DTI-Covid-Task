@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 body{
-  /* font-family: OpenSans; */
+  font-family: Quicksand;
+  font-weight: bolder;
+  color: black;
 }
 .App {
   text-align: center;
@@ -18,4 +22,8 @@ body{
 .menu:hover {
   background-color: white;
   color: green;
+}
+
+h2 {
+  font-weight: bold;
 }

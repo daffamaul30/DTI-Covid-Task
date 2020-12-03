@@ -1,9 +1,10 @@
 import React from 'react';
+import './style.css';
 
 const Loading = () => {
   return (
     <div className="text-center">
-      <button className="btn" type="button" disabled>
+      <button className="btn loading" type="button" disabled>
         <span
           className="spinner-border spinner-border-sm"
           role="status"

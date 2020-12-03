@@ -7,7 +7,7 @@ import routes from './config/routes';
 import { isUserAuthenticated } from './utils/cookie';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  // console.log(isUserAuthenticated);
+  // console.log(isUserAuthenticated());
   return (
     <Route
       {...rest}
