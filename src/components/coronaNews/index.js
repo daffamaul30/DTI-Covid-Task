@@ -2,6 +2,7 @@ import React from 'react';
 import Pagination from 'pagination-react-hooks';
 import Loading from '../loading';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 const CoronaNews = (props) => {
   const { news } = props;
@@ -52,13 +53,11 @@ const CoronaNews = (props) => {
   };
   const beritas = (value) => {
     console.log(value);
+
     // return <p>HAI</p>
     return (
-      <li
-        key={value.id}
-        className="list-data"
-      >
-        {convertISO(value.date)}
+      <li key={value.id} className="list-data">
+        <Link to={`/info Covid-19/${value.date}`}>{convertISO(value.date)}</Link>
         {value.activity.map((activity) => {
           return (
             <ul key={activity.url}>

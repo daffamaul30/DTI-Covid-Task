@@ -1,20 +1,26 @@
-import { Home, Profile, Contact, Login, ProfileId, InfoCorona } from '../pages';
+import {
+  Home,
+  Login,
+  DetailDate,
+  InfoCorona,
+  Product
+} from '../pages';
 
 const routes = [
+  // {
+  //   path: '/profile/:profileId',
+  //   component: ProfileId,
+  //   isPublic: false,
+  // },
+  // {
+  //   path: '/profile',
+  //   component: Profile,
+  //   isPublic: false,
+  // },
   {
-    path: '/profile/:profileId',
-    component: ProfileId,
+    path: '/product',
+    component: Product,
     isPublic: false,
-  },
-  {
-    path: '/profile',
-    component: Profile,
-    isPublic: false,
-  },
-  {
-    path: '/contact',
-    component: Contact,
-    isPublic: true,
   },
   {
     path: '/home',
@@ -24,6 +30,11 @@ const routes = [
   {
     path: '/login',
     component: Login,
+    isPublic: true,
+  },
+  {
+    path: '/info Covid-19/:dateId',
+    component: DetailDate,
     isPublic: true,
   },
   {

@@ -10,7 +10,7 @@ const InfoCorona = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    document.title = 'Covid-19 - Info Corona';
+    document.title = 'DTI Task - Info Corona';
     const db = app.database().ref('news');
     db.on('value', (snapshot) => {
       const firebaseNews = snapshot.val();
