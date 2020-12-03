@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { isUserAuthenticated } from '../../utils/cookie';
+import { Link, useHistory } from 'react-router-dom';
+import { getCookie, isUserAuthenticated } from '../../utils/cookie';
 import './style.css';
 
 const Header = () => {
   const listMenu = ['Home', 'Product', 'Info Covid-19'];
+  const history = useHistory();
+  const logout = () => {
+    // Cookie.remove('tokenn');
+    history.push('/login');
+  };
+
   return (
     <div className="header text-center">
       {listMenu.map((name) => {
@@ -15,7 +21,13 @@ const Header = () => {
         );
       })}
       {isUserAuthenticated() ? (
-        <button type="button" className="logout btn btn-danger">
+        <button
+          type="button"
+          className="logout btn btn-danger"
+          onClick={() => {
+            logout();
+          }}
+        >
           Logout
         </button>
       ) : (
