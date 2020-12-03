@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { getCookie, isUserAuthenticated } from '../../utils/cookie';
+import { isUserAuthenticated } from '../../utils/cookie';
 import './style.css';
 
 const Header = () => {

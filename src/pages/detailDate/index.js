@@ -4,6 +4,7 @@ import { Loading } from '../../components';
 import app from '../../services/firebase';
 import 'firebase/database';
 import './style.css';
+import Func from '../../utils/baseFunction';
 
 const DetailDate = () => {
   const [news, setNews] = useState([]);
@@ -27,7 +28,7 @@ const DetailDate = () => {
   }, [dateId]);
 
   return (
-    <div className="news-container">
+    <div className="container">
       {!isLoading && news.length > 0 ? (
         <NewsItem data={news[0]} />
       ) : (
@@ -41,9 +42,21 @@ export default DetailDate;
 
 const NewsItem = ({ data }) => {
   console.log(data);
-  const { date, activity, url } = data;
+  const { date, activity } = data;
   return (
-    <h4>{date}</h4>
+    <div>
+      <h4>{Func.convertISO(date)}</h4>
+      {activity.map((activ) => {
+        return (
+          <ul key={activ.url}>
+            <li id="title">
+              <a href={activ.url}>{activ.title}</a>
+            </li>
+            {activ.desc ? <p id="desc">{activ.desc}</p> : <p> </p>}
+          </ul>
+        );
+      })}
+    </div>
     // <></>
   );
 };

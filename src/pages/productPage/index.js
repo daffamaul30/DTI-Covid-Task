@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   Card,
   CardText,
-  CardBody,
   CardTitle,
   CardSubtitle,
   Row,
@@ -36,7 +35,7 @@ const Product = () => {
   const listProduct = data.map((product) => {
     const category = product.categories.join(',');
     return (
-      <Col sm="6">
+      <Col sm="6" key={product.id}>
         <Card body>
           <CardSubtitle tag="h5" className="promo mb-2 text-muted">
             {product.display_promo_price_percentage}

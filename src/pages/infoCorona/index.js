@@ -21,7 +21,7 @@ const InfoCorona = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <h2 className="text-success mb-3 text-center">Corona News</h2>
       <CoronaNews news={news} loading={isLoading} />
     </div>
