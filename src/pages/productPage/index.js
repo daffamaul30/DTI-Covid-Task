@@ -49,12 +49,12 @@ const Product = () => {
           <CardSubtitle tag="h6" className="mb-2 text-muted">
             {product.description}
           </CardSubtitle>
-          <CardText>{`${product.display_unit} - (${product.display_unit_price})`}</CardText>
+          <CardText>{product.display_unit }</CardText>
           <CardSubtitle tag="h6" className="normal-price mb-2 text-muted">
             {product.display_normal_price}
           </CardSubtitle>
           <CardSubtitle tag="h5" className="price mb-2 text-muted">
-            {product.display_price}
+            {`${product.display_price} - (${product.display_unit_price})`}
           </CardSubtitle>
         </Card>
       </Col>

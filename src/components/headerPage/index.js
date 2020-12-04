@@ -9,6 +9,7 @@ const Header = () => {
   const logout = () => {
     // Cookie.remove('tokenn');
     history.push('/login');
+    // window.location.replace('/login');
   };
 
   return (
