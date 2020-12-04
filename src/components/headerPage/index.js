@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { isUserAuthenticated } from '../../utils/cookie';
+import { Link } from 'react-router-dom';
+import { isUserAuthenticated, deleteCookie } from '../../utils/cookie';
 import './style.css';
 
 const Header = () => {
   const listMenu = ['Home', 'Product', 'Info Covid-19'];
-  const history = useHistory();
   const logout = () => {
-    // Cookie.remove('tokenn');
-    history.push('/login');
-    // window.location.replace('/login');
+    deleteCookie('tokenn');
+    window.location.replace('/login');
   };
 
   return (
