@@ -1,8 +1,8 @@
 import BaseService from './baseService';
 import API from '../config/rest';
 
-const product = () => {
-  return BaseService.get(API.PRODUCT);
+const product = (limit, searchKey) => {
+  return BaseService.get(API.PRODUCT(limit, searchKey));
 };
 
 export default { product };

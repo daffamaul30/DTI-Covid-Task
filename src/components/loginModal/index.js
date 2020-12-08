@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -16,7 +15,6 @@ import { authService } from '../../services';
 
 const LoginModal = (props) => {
   const { className } = props;
-  const history = useHistory();
 
   const [modal, setModal] = useState(false);
   const [username, setUsername] = useState('');
@@ -49,7 +47,8 @@ const LoginModal = (props) => {
       .finally(() => {
         setLoginLoading(false);
         toggle();
-        history.push('/product');
+        // history.push('/product');
+        window.location.replace('/product');
       });
   };
 

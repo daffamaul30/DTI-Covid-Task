@@ -1,3 +1,25 @@
+#input-search {
+  position: relative;
+  width: 265px;
+  align-items: flex-end;
+  height: 40px;
+  border: 1px solid darkgreen;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+input[type='search'] {
+  outline: 0;
+  width: 100%;
+  background: white;
+  padding: 5px;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
 .container {
   margin-top: 20px;
   border: 1px solid darkgreen;
@@ -10,12 +32,47 @@
   margin: 10px;
   margin-right: 0;
   margin-left: 0;
+  border: 1px solid darkgreen;
+  overflow: hidden;
+}
+
+#Popover1 {
+  /* position: absolute; */
+  /* right: 50px; */
+  /* bottom: 5px; */
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.stock {
+  background-color: darkgreen;
+  width: fit-content;
+  padding: 5px;
+  color: white;
+  position: absolute;
+  right: -20px;
+  bottom: 70px;
+  transform: rotate(-90deg);
+  font-size: 19px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .card-title {
   border-bottom: 3px solid darkgreen;
   max-width: fit-content;
   font-weight: bold;
+  text-transform: capitalize;
+  margin-top: -15px;
+  margin-bottom: -3px;
+}
+
+.card-body {
+  padding-bottom: 0;
+}
+
+.card-img-top {
+  border-bottom: 2px dashed darkgreen;
 }
 
 .promo {
@@ -34,6 +91,40 @@
   text-align: center;
   vertical-align: middle !important;
   padding-top: 12px;
+  border: 2px solid white;
+}
+
+.container-overlay {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgb(23, 162, 184, 0.9);
+}
+
+.container-overlay:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .normal-price {
@@ -42,4 +133,38 @@
 
 .price {
   font-weight: bold;
+}
+
+.cart {
+  position: fixed;
+  padding: 15px;
+  width: fit-content;
+  top: 80px;
+  right: 40px;
+  background-color: rgb(23, 162, 184);
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 1px 1px 2px black;
+  cursor: pointer;
+}
+
+.cart img {
+  width: 40px;
+}
+
+.btn-tambah {
+  margin-bottom: -3px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: fit-content;
+  padding: 5;
+}
+
+.btn-tambah img {
+  width: 20px;
+}
+
+.btn-tambah p {
+  margin-bottom: 0;
+  font-size: 10px;
 }
