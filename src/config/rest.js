@@ -1,6 +1,6 @@
 export default {
   LOGIN: '/login',
-  PRODUCT: (limit, searchKey) => {
-    return `/product?limit=${limit}&offset=0&search=${searchKey}`;
+  PRODUCT: (limit, offset, searchKey) => {
+    return `/product?limit=${limit}&offset=${offset}&search=${searchKey}`;
   },
 };

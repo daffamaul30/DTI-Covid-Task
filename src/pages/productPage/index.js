@@ -11,15 +11,17 @@ import {
   Button,
 } from 'reactstrap';
 import { DelayInput } from 'react-delay-input';
+import ReactPaginate from 'react-paginate';
 import { productService } from '../../services';
 import { Loading } from '../../components';
-import { Cart } from '../../assets';
+import { Cart, NotFound } from '../../assets';
 import './style.css';
 
 const Product = () => {
   const [productDataLoading, setProductDataLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [limit, setLimit] = useState(12);
+  const [limit, setLimit] = useState(9);
+  const [offset, setOffset] = useState(0);
   const [searchKey, setSearchKey] = useState('');
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Product = () => {
   useEffect(() => {
     setProductDataLoading(true);
     productService
-      .product(limit, searchKey)
+      .product(limit, offset, searchKey)
       .then((res) => {
         setData(res.data);
       })
@@ -39,7 +41,11 @@ const Product = () => {
       .finally(() => {
         setProductDataLoading(false);
       });
-  }, [searchKey]);
+  }, [limit, offset, searchKey]);
+
+  const handlePagination = (e) => {
+    setOffset(limit * e.selected);
+  };
 
   const listProduct = data.map((product) => {
     return (
@@ -49,14 +55,20 @@ const Product = () => {
             <CardImg
               top
               // width="50%"
-              src={product.variants[0].images[0].original_url}
+              src={
+                product.variants[0].images[0] ? (
+                  product.variants[0].images[0].original_url
+                ) : (
+                  NotFound
+                )
+              }
               alt="Card image cap"
             />
             <div className="overlay">
               <div className="text">
-                <h6>{product.description}</h6>
+                <p>{product.description}</p>
                 <u>
-                  <small>{product.display_unit_price}</small>
+                  <p>{product.display_unit_price}</p>
                 </u>
               </div>
             </div>
@@ -94,7 +106,7 @@ const Product = () => {
   return (
     <div>
       <div className="container">
-        <h2 className="text-success mb-3 text-center">Product List</h2>
+        <h2 className="text-success mb-3 text-center">PRODUCT LIST</h2>
         <div className="text-right">
           <DelayInput
             id="input-search"
@@ -107,7 +119,23 @@ const Product = () => {
             }}
           />
         </div>
-        {productDataLoading ? <Loading /> : <Row>{listProduct}</Row>}
+        <div>
+          {productDataLoading ? <Loading /> : <Row>{listProduct}</Row>}
+          <ReactPaginate
+            previousLabel="&laquo;"
+            nextLabel="&raquo;"
+            breakLabel="..."
+            breakClassName="break-me"
+            pageCount={5}
+            // marginPagesDisplayed={2}
+            // pageRangeDisplayed={5}
+            onPageChange={(e) => {
+              handlePagination(e);
+            }}
+            containerClassName="pagination"
+            activeClassName="active"
+          />
+        </div>
       </div>
       <Button className="cart">
         <img alt="cart" src={Cart} />

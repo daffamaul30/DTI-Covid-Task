@@ -45,7 +45,7 @@ input[type='search'] {
 }
 
 .stock {
-  background-color: darkgreen;
+  background-color: green;
   width: fit-content;
   padding: 5px;
   color: white;
@@ -108,7 +108,7 @@ input[type='search'] {
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: rgb(23, 162, 184, 0.9);
+  background-color: rgb(211, 211, 211, 0.9);
 }
 
 .container-overlay:hover .overlay {
@@ -116,8 +116,8 @@ input[type='search'] {
 }
 
 .text {
-  color: white;
-  font-size: 20px;
+  color: darkgreen;
+  font-size: 17px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -149,7 +149,7 @@ input[type='search'] {
 }
 
 .cart img {
-  width: 40px;
+  width: 30px;
 }
 
 .btn-tambah {
@@ -167,4 +167,41 @@ input[type='search'] {
 .btn-tambah p {
   margin-bottom: 0;
   font-size: 10px;
+}
+
+/* PAGINATION */
+.pagination {
+  margin: 15px auto;
+  display: flex;
+  list-style: none;
+  outline: none;
+  background-color: #47ccde;
+  /* border: 1px solid #47ccde ; */
+  width: fit-content;
+  border-radius: 3px;
+  padding: 1px;
+}
+.pagination > .active > a{
+  /* background-color: #47ccde ; */
+  /* border-color: #47ccde ; */
+  color: #fff;
+}
+.pagination > li > a{
+  border: 2px solid #47ccde ;
+  padding: 0px 10px;
+  background-color: white;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+  background-color: #47ccde ;
+  border-color: #47ccde;
+  outline: none ;
+}
+.pagination > li > a, .pagination > li > span{
+  color: darkgreen;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+  border-radius: unset
 }
