@@ -34,4 +34,26 @@ const convertISO = (tanggal) => {
   return days[day] + ', ' + dt + ' ' + month + ' ' + year;
 };
 
-export default { convertISO };
+const range = (end) => {
+  const ans = [];
+  for (let i = 0; i <= end; i++) {
+    ans.push(i);
+  }
+  return ans;
+};
+
+const formatRupiah = (angka) => {
+  const sisa = angka.length % 3;
+  let rupiah = angka.substr(0, sisa);
+  const ribuan = angka.substr(sisa).match(/\d{3}/g);
+
+  // tambahkan titik jika yang di input sudah menjadi angka ribuan
+  if (ribuan) {
+    const separator = sisa ? '.' : '';
+    rupiah += separator + ribuan.join('.');
+  }
+
+  return `Rp${rupiah}`;
+};
+
+export default { convertISO, range, formatRupiah };

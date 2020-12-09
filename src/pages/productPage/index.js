@@ -9,20 +9,27 @@ import {
   CardImg,
   CardBody,
   Button,
+  Input,
+  Alert,
 } from 'reactstrap';
 import { DelayInput } from 'react-delay-input';
 import ReactPaginate from 'react-paginate';
+import { useAlert } from 'react-alert';
+import { CartModal, Loading } from '../../components';
 import { productService } from '../../services';
-import { Loading } from '../../components';
 import { Cart, NotFound } from '../../assets';
+import Func from '../../utils/baseFunction';
 import './style.css';
 
 const Product = () => {
+  const alert = useAlert();
   const [productDataLoading, setProductDataLoading] = useState(false);
   const [data, setData] = useState([]);
   // const [limit, setLimit] = useState(9);
   const [offset, setOffset] = useState(0);
   const [searchKey, setSearchKey] = useState('');
+
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     document.title = 'DTI Task - Products';
@@ -51,7 +58,20 @@ const Product = () => {
     setSearchKey(e);
   };
 
+  const addToCart = (id, name, size, price, count) => {
+    if (id !== null && count > 0) {
+      setCart([...cart, { id, name, size, price, count }]);
+      alert.success('Successfully add item to cart');
+    }
+  };
+
   const listProduct = data.map((product) => {
+    const listQuantity = Func.range(
+      product.max_promo_quantity
+        ? product.max_promo_quantity
+        : product.max_order_quantity
+    );
+    let count;
     return (
       <Col sm="4" key={product.variant_id}>
         <Card>
@@ -93,11 +113,36 @@ const Product = () => {
             <CardText className="stock">
               {!product.variants[0].in_stock ? 'Out Of Stock' : 'In Stock'}
             </CardText>
-            <div className="text-center">
-              <Button color="info" className="btn-tambah">
+            <div className="d-flex flex-row justify-content-center">
+              <Button
+                onClick={() => {
+                  addToCart(
+                    product.id,
+                    product.brand.name,
+                    product.display_unit,
+                    product.price,
+                    count
+                  );
+                }}
+                color="info"
+                className="btn-tambah"
+              >
                 <img alt="add to cart" src={Cart} />
                 <p>Add to cart</p>
               </Button>
+              <Input
+                type="select"
+                name="selectCount"
+                id="selectCount"
+                className="text-center"
+                onChange={(e) => {
+                  count = e.target.value;
+                }}
+              >
+                {listQuantity.map((i) => {
+                  return <option key={i}>{i}</option>;
+                })}
+              </Input>
             </div>
           </CardBody>
         </Card>
@@ -121,7 +166,7 @@ const Product = () => {
             }}
           />
         </div>
-        <div>
+        <div className="product-content">
           {productDataLoading ? <Loading /> : <Row>{listProduct}</Row>}
           {searchKey.length > 0 ? (
             <div />
@@ -140,10 +185,8 @@ const Product = () => {
             />
           )}
         </div>
+        <CartModal dataCart={cart} />
       </div>
-      <Button className="cart">
-        <img alt="cart" src={Cart} />
-      </Button>
     </div>
   );
 };

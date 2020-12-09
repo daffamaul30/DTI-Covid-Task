@@ -10,6 +10,8 @@
     "firebase": "^8.0.0",
     "pagination-react-hooks": "^1.1.0",
     "react": "^16.13.1",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-delay-input": "^4.1.0",
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.7",

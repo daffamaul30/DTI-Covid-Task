@@ -75,6 +75,10 @@ input[type='search'] {
   border-bottom: 2px dashed darkgreen;
 }
 
+.product-content {
+  margin-top: 20px;
+}
+
 .promo {
   position: absolute;
   right: 0;
@@ -83,7 +87,7 @@ input[type='search'] {
   margin-right: 5px;
   font-style: italic;
   font-weight: bold;
-  background-color: green;
+  background-color: red;
   width: 50px;
   height: 50px;
   border-radius: 100%;
@@ -135,29 +139,23 @@ input[type='search'] {
   font-weight: bold;
 }
 
-.cart {
-  position: fixed;
-  padding: 15px;
-  width: fit-content;
-  bottom: 50px;
-  right: 40px;
-  background-color: rgb(23, 162, 184);
-  border-radius: 50px;
-  text-align: center;
-  box-shadow: 1px 1px 2px black;
-  cursor: pointer;
-}
-
-.cart img {
-  width: 30px;
-}
-
 .btn-tambah {
-  margin-bottom: -3px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
   width: fit-content;
   padding: 5;
+}
+
+select#selectCount.form-control {
+  padding: 10px;
+  width: 60px;
+  height: 55px;
+  border-radius: 0;
+  border-top-right-radius: 5px;
+  border: 3px solid #17a2b8;
+  font-weight: bold;
+  outline: none;
 }
 
 .btn-tambah img {
@@ -181,28 +179,37 @@ input[type='search'] {
   border-radius: 3px;
   padding: 1px;
 }
-.pagination-product > .active > a{
+.pagination-product > .active > a {
   /* background-color: #47ccde ; */
   /* border-color: #47ccde ; */
   color: #fff;
 }
-.pagination-product > li > a{
-  border: 2px solid #47ccde ;
+.pagination-product > li > a {
+  border: 2px solid #47ccde;
   padding: 0px 10px;
   background-color: white;
   outline: none;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
-.pagination-product > .active > a, .pagination-product > .active > span, .pagination-product > .active > a:hover, .pagination-product > .active > span:hover, .pagination-product > .active > a:focus, .pagination-product > .active > span:focus{
-  background-color: #47ccde ;
+.pagination-product > .active > a,
+.pagination-product > .active > span,
+.pagination-product > .active > a:hover,
+.pagination-product > .active > span:hover,
+.pagination-product > .active > a:focus,
+.pagination-product > .active > span:focus {
+  background-color: #47ccde;
   border-color: #47ccde;
-  outline: none ;
+  outline: none;
 }
-.pagination-product > li > a, .pagination-product > li > span{
+.pagination-product > li > a,
+.pagination-product > li > span {
   color: darkgreen;
-  font-weight: lighter;
+  font-weight: bold;
 }
-.pagination-product > li:first-child > a, .pagination-product > li:first-child > span, .pagination-product > li:last-child > a, .pagination-product > li:last-child > span{
-  border-radius: unset
+.pagination-product > li:first-child > a,
+.pagination-product > li:first-child > span,
+.pagination-product > li:last-child > a,
+.pagination-product > li:last-child > span {
+  border-radius: unset;
 }
