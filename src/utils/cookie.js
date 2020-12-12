@@ -15,9 +15,10 @@ function getCookie(name) {
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
-  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  d.setTime(d.getTime() + exdays * 60 * 60 * 1000);
   const expires = `expires=${d.toUTCString()}`;
   const domain = process.env.REACT_APP_DOMAIN ?? 'localhost';
+  // console.log(expires);
   document.cookie = `${cname}=${cvalue};${expires};domain=${domain};path=/`;
 }
 

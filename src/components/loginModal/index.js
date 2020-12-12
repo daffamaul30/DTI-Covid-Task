@@ -39,7 +39,7 @@ const LoginModal = (props) => {
         const cookieToken = res.token;
         // const cookieUser = res.user;
         // setCookie('userID', JSON.stringify(cookieUser), 1000);
-        setCookie('tokenn', JSON.stringify(cookieToken), 1000);
+        setCookie('tokenn', JSON.stringify(cookieToken), 1);
       })
       .catch((err) => {
         console.log(err);
