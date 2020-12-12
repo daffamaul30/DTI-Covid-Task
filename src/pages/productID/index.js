@@ -57,6 +57,14 @@ const ProductId = () => {
               <td>{category.join(', ')}</td>
             </tr>
             <tr>
+              <td>Size</td>
+              <td />
+              <td />
+              <td />
+              <td>:</td>
+              <td>{data.display_unit}</td>
+            </tr>
+            <tr>
               <td>Description</td>
               <td />
               <td />
@@ -94,7 +102,7 @@ const ProductId = () => {
               <td />
               <td />
               <td>:</td>
-              <td>{data.display_price}</td>
+              <td>{data.display_unit_price}</td>
             </tr>
             <tr>
               <td>In Stock</td>

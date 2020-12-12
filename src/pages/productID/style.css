@@ -4,6 +4,8 @@
   font-weight: bold;
 }
 
-.container .detail-product {
+.detail-product {
   width: fit-content;
+  border: 1px solid darkgreen;
+  background-color: white;
 }

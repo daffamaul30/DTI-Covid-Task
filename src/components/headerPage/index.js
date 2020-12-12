@@ -14,7 +14,7 @@ const Header = () => {
     <div className="header text-center">
       {listMenu.map((name) => {
         return (
-          <Link to={`/${name}`} key={name}>
+          <Link to={`/${name.toLowerCase()}`} key={name}>
             <div className="menu">{name}</div>
           </Link>
         );

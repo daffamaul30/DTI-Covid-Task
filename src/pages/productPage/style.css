@@ -22,10 +22,10 @@ input[type='search'] {
 
 .container {
   margin-top: 20px;
-  border: 1px solid darkgreen;
+  /* border: 1px solid darkgreen; */
   padding: 20px;
   max-width: 900px;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .card {
