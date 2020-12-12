@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardText,
@@ -10,7 +11,6 @@ import {
   CardBody,
   Button,
   Input,
-  Alert,
 } from 'reactstrap';
 import { DelayInput } from 'react-delay-input';
 import ReactPaginate from 'react-paginate';
@@ -25,7 +25,7 @@ const Product = () => {
   const alert = useAlert();
   const [productDataLoading, setProductDataLoading] = useState(false);
   const [data, setData] = useState([]);
-  // const [limit, setLimit] = useState(9);
+  const [limit, setLimit] = useState(9);
   const [offset, setOffset] = useState(0);
   const [searchKey, setSearchKey] = useState('');
 
@@ -33,12 +33,9 @@ const Product = () => {
 
   useEffect(() => {
     document.title = 'DTI Task - Products';
-  });
-
-  useEffect(() => {
     setProductDataLoading(true);
     productService
-      .product(9, searchKey.length > 0 ? 0 : offset, searchKey)
+      .product(limit, searchKey.length > 0 ? 0 : offset, searchKey)
       .then((res) => {
         setData(res.data);
       })
@@ -48,10 +45,10 @@ const Product = () => {
       .finally(() => {
         setProductDataLoading(false);
       });
-  }, [offset, searchKey]);
+  }, [limit, offset, searchKey]);
 
   const handlePagination = (e) => {
-    setOffset(9 * e.selected);
+    setOffset(limit * e.selected);
   };
 
   const onSearch = (e) => {
@@ -99,9 +96,16 @@ const Product = () => {
             <CardSubtitle tag="h5" className="promo mb-2 text-muted">
               {product.display_promo_price_percentage}
             </CardSubtitle>
-            <CardTitle tag="h5">{product.brand.name}</CardTitle>
-            {/* <CardText>{product.variants[0].name}</CardText> */}
-            <CardText>{product.display_unit}</CardText>
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={`/product/${product.id}`}
+            >
+              <CardTitle className="brand-name" tag="h5">
+                {product.brand.name}
+              </CardTitle>
+              {/* <CardText>{product.variants[0].name}</CardText> */}
+              <CardText>{product.display_unit}</CardText>
+            </Link>
             <CardSubtitle tag="h6" className="normal-price mb-2 text-muted">
               {product.display_normal_price}
             </CardSubtitle>

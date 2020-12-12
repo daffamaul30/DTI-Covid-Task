@@ -1,0 +1,9 @@
+.table-detail-product {
+  font-size: 15px;
+  /* width: 800px; */
+  font-weight: bold;
+}
+
+.container .detail-product {
+  width: fit-content;
+}

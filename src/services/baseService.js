@@ -24,7 +24,7 @@ const createAxiosInterceptor = (url) => {
     },
     (error) => {
       if (error.response.status === 401) {
-        window.location.replace('/product');
+        window.location.replace('/');
       }
       return Promise.reject(error);
     }

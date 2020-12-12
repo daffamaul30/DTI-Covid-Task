@@ -3,3 +3,4 @@ export { default as Login } from './login';
 export { default as InfoCorona } from './infoCorona';
 export { default as DetailDate } from './detailDate';
 export { default as Product } from './productPage';
+export { default as ProductId } from './productID';

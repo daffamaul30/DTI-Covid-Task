@@ -3,15 +3,16 @@ import {
   Login,
   DetailDate,
   InfoCorona,
-  Product
+  Product,
+  ProductId,
 } from '../pages';
 
 const routes = [
-  // {
-  //   path: '/profile/:profileId',
-  //   component: ProfileId,
-  //   isPublic: false,
-  // },
+  {
+    path: '/product/:productId',
+    component: ProductId,
+    isPublic: false,
+  },
   // {
   //   path: '/profile',
   //   component: Profile,

@@ -7,7 +7,7 @@ const Header = () => {
   const listMenu = ['Home', 'Product', 'Info Covid-19'];
   const logout = () => {
     deleteCookie('tokenn');
-    window.location.replace('/login');
+    window.location.replace('/product');
   };
 
   return (
