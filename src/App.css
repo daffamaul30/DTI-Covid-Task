@@ -11,7 +11,8 @@ body{
 }
 
 .header {
-  background-color: green;
+  background-color: darkcyan;
+  /* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(6,6,74,1) 50%, rgba(8,68,167,1) 100%); */
 }
 
 .menu {
@@ -22,9 +23,10 @@ body{
 
 .menu:hover {
   background-color: white;
-  color: green;
+  color: darkcyan;
 }
 
 h2 {
   font-weight: bold;
+  color: darkcyan;
 }

@@ -157,7 +157,7 @@ const Product = () => {
   return (
     <div>
       <div className="container">
-        <h2 className="text-success mb-3 text-center">PRODUCT LIST</h2>
+        <h2 className="mb-3 text-center">PRODUCT LIST</h2>
         <div className="text-right">
           <DelayInput
             id="input-search"
@@ -172,7 +172,7 @@ const Product = () => {
         </div>
         <div className="product-content">
           {productDataLoading ? <Loading /> : <Row>{listProduct}</Row>}
-          {searchKey.length > 0 ? (
+          { searchKey.length > 0 ? (
             <div />
           ) : (
             <ReactPaginate

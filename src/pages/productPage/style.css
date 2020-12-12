@@ -3,7 +3,7 @@
   width: 265px;
   align-items: flex-end;
   height: 40px;
-  border: 1px solid darkgreen;
+  border: 3px solid darkcyan;
   border-radius: 4px;
   font-weight: bold;
 }
@@ -24,7 +24,7 @@ input[type='search'] {
   margin-top: 20px;
   /* border: 1px solid darkgreen; */
   padding: 20px;
-  max-width: 900px;
+  max-width: 1100px;
   /* background-color: white; */
 }
 
@@ -32,7 +32,7 @@ input[type='search'] {
   margin: 10px;
   margin-right: 0;
   margin-left: 0;
-  border: 3px solid darkgreen;
+  border: 2px solid darkcyan;
   overflow: hidden;
 }
 
@@ -59,7 +59,7 @@ input[type='search'] {
 }
 
 .card-title {
-  border-bottom: 3px solid darkgreen;
+  border-bottom: 3px solid darkcyan;
   max-width: fit-content;
   font-weight: bold;
   text-transform: capitalize;
@@ -72,7 +72,7 @@ input[type='search'] {
 }
 
 .card-img-top {
-  border-bottom: 2px dashed darkgreen;
+  border-bottom: 2px dashed darkcyan;
 }
 
 .product-content {
@@ -120,7 +120,7 @@ input[type='search'] {
 }
 
 .text {
-  color: darkgreen;
+  color: darkcyan;
   font-size: 17px;
   position: absolute;
   top: 50%;
@@ -133,6 +133,7 @@ input[type='search'] {
 
 .normal-price {
   text-decoration: line-through;
+  margin-top: 10px;
 }
 
 .price {
@@ -207,13 +208,13 @@ select#selectCount.form-control {
 .pagination-product > .active > span:hover,
 .pagination-product > .active > a:focus,
 .pagination-product > .active > span:focus {
-  background-color: #47ccde;
-  border-color: #47ccde;
+  background-color: darkcyan;
+  border-color: darkcyan;
   outline: none;
 }
 .pagination-product > li > a,
 .pagination-product > li > span {
-  color: darkgreen;
+  color: darkcyan;
   font-weight: bold;
 }
 .pagination-product > li:first-child > a,
