@@ -11,14 +11,16 @@ const Header = () => {
   };
 
   return (
-    <div className="header text-center">
-      {listMenu.map((name) => {
-        return (
-          <Link to={`/${name.toLowerCase()}`} key={name}>
-            <div className="menu">{name}</div>
-          </Link>
-        );
-      })}
+    <div className="header text-center sticky-top">
+      <ul className="menu sticky">
+        {listMenu.map((name) => {
+          return (
+            <Link to={`/${name.toLowerCase()}`} key={name}>
+              <li className="menu-list">{name}</li>
+            </Link>
+          );
+        })}
+      </ul>
       {isUserAuthenticated() ? (
         <button
           type="button"
